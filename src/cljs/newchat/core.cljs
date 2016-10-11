@@ -2,16 +2,16 @@
     (:require [reagent.core :as reagent :refer [atom]]
               [reagent.session :as session]
               [secretary.core :as secretary :include-macros true]
-              [accountant.core :as accountant]
-              [clojure.java.jdbc :as db]))
+              [accountant.core :as accountant]))
 
 ;; ------------------------
 ;; Database
 
-(def database-connection (env :database-url "postgres://jlhkvxviinvkpy:7hkCi_Cc_4id02UMci4-TiOVeR@ec2-54-225-64-254.compute-1.amazonaws.com:5432/d7lei527gbu5v"))
+;; (def database-connection (env :database-url "postgres://jlhkvxviinvkpy:7hkCi_Cc_4id02UMci4-TiOVeR@ec2-54-225-64-254.compute-1.amazonaws.com:5432/d7lei527gbu5v"))
 
-(defn record [db input]
-  (db/insert! database-connection db {:content input}))
+
+;; (defn record [db input]
+;;   (db/insert! database-connection db {:content input}))
 
 ;; -------------------------
 ;; Views

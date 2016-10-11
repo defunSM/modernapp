@@ -2,7 +2,8 @@
   (:require [newchat.handler :refer [app]]
             [config.core :refer [env]]
             [ring.adapter.jetty :refer [run-jetty]]
-            [clojure.java.jdbc :as db])
+;;            [clojure.java.jdbc :as db]
+            )
   (:gen-class))
 
  (defn -main [& args]
