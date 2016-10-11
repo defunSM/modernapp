@@ -23,8 +23,8 @@
    [:center    [:h3 "The Modern Chat Platform"]]
 ;;   [:div [:a {:href "/about"} "go to about page"]]
    [:br] [:br]
-   [:div1 "Online"]
-   [:div1 "Messages"]])
+   [:center [:div1 "Online"]
+    [:div1 "Messages"]]])
 
 (defn about-page []
   [:div [:h2 " newchat"]
