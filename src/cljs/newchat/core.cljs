@@ -20,11 +20,14 @@
 
 (defn home-page []
   [:div [:center [:h2 "SMchat"]]
-   [:center    [:h3 "The Modern Chat Platform"]]
+   [:center  [:h3 "The Modern Chat Platform"]]
 ;;   [:div [:a {:href "/about"} "go to about page"]]
    [:br] [:br]
-   [:center [:div1 "Online"]
-    [:div1 "Messages"]]])
+   [:center [:div1 [:a {:href "https://defunsm.github.io/posts-output/smchat/"} "SMChat"]]
+    [:br] [:br] [:br]
+    [:div1 "Messages"]]
+   [:br] [:br] [:br]
+   [:center [:img {:src "http://imgur.com/StGANnEl.png"}]]])
 
 (defn about-page []
   [:div [:h2 " newchat"]

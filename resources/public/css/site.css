@@ -1,5 +1,14 @@
+body {
+
+
+    max-width: 100%;
+
+    box-sizing: border-box;
+
+}
+
 .body-container {
-    max-width: 1600px;
+
     height: 100vh;
     margin: 0 auto;
     padding-top: 72px;
@@ -8,6 +17,8 @@
     color: #333;
     line-height: 1.5em;
     background: #272B30;
+
+
 }
 
 h1, h2 {
@@ -21,7 +32,6 @@ h1, h2 {
 }
 
 div1 {
-    max-width: 300px;
     padding: 23px 120px;
     margin: 0 auto;
     border-radius: 0.3em 0.3em 0em 0em;
@@ -31,6 +41,7 @@ div1 {
     border-width: 1px;
     background: #32383e;
     border: 1px solid rgba(0,0,0,0.6);
+
 }
 
 div1:hover {
@@ -65,5 +76,10 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+    color: #a67d4a;
+}
+
+img {
+    width: 70%;
+    height: 70%;
 }
