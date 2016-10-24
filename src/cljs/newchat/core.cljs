@@ -1,6 +1,5 @@
 (ns newchat.core
-  (:require   [clojure.core]
-              [reagent.core :as reagent :refer [atom]]
+  (:require   [reagent.core :as reagent :refer [atom]]
               [reagent.session :as session]
               [secretary.core :as secretary :include-macros true]
               [accountant.core :as accountant]))
@@ -31,11 +30,11 @@
    [:center [:img {:src "http://imgur.com/StGANnEl.png"}]]])
 
 (defn about-page []
-  [:div [:center [:h2 " SMchat"]]
+  [:div
    [:br]
    [:center [:div1 [:a {:href "/"} "Home"]]]
    [:br] [:br]
-   [:textbox [:center "ChatBox :"]
+   [:textbox [:center [:h2 "SMchat"]]
     [:br]
     [:br]
     [:center [:div1"Currently under active development"]]]])
