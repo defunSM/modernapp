@@ -2,9 +2,7 @@
     (:require [reagent.core :as reagent :refer [atom]]
               [reagent.session :as session]
               [secretary.core :as secretary :include-macros true]
-              [accountant.core :as accountant]
-              [clj-postgresql.core :as pg]
-              [clojure.java.jdbc :as jdbc]))
+              [accountant.core :as accountant]))
 
 ;; ------------------------
 ;; Database
