@@ -1,5 +1,6 @@
 (ns newchat.core
-    (:require [reagent.core :as reagent :refer [atom]]
+  (:require   [clojure.core]
+              [reagent.core :as reagent :refer [atom]]
               [reagent.session :as session]
               [secretary.core :as secretary :include-macros true]
               [accountant.core :as accountant]))
@@ -25,13 +26,19 @@
    [:br] [:br]
    [:center [:div1 [:a {:href "https://defunsm.github.io/posts-output/smchat/"} "SMChat"]]
     [:br] [:br] [:br]
-    [:div1 "Messages"]]
+    [:div1 [:a {:href "/about"} "Messages"]]]
    [:br] [:br] [:br]
    [:center [:img {:src "http://imgur.com/StGANnEl.png"}]]])
 
 (defn about-page []
-  [:div [:h2 " newchat"]
-   [:div [:a {:href "/"} "go to the home page"]]])
+  [:div [:center [:h2 " SMchat"]]
+   [:br]
+   [:center [:div1 [:a {:href "/"} "Home"]]]
+   [:br] [:br]
+   [:textbox [:center "ChatBox :"]
+    [:br]
+    [:br]
+    [:center [:div1"Currently under active development"]]]])
 
 (defn current-page []
   [:div [(session/get :current-page)]])

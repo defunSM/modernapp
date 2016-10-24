@@ -21,6 +21,23 @@ body {
 
 }
 
+textbox {
+
+    padding: 23px 120px 0px 100px;
+    margin: 0 auto;
+    border-radius: 0.3em 0.3em 0em 0em;
+    color: #CCDAEB;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    background: #32383e;
+    border: 3px solid rgba(0,0,0,0.6);
+    position: fixed;
+    height: 70%;
+    width: 76%;
+    z-index: 1;
+}
+
 h1, h2 {
     margin: 0 0 15px 0;
     color: #a67d4a;
@@ -41,7 +58,7 @@ div1 {
     border-width: 1px;
     background: #32383e;
     border: 1px solid rgba(0,0,0,0.6);
-
+    z-index: 3;
 }
 
 div1:hover {
