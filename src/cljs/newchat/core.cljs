@@ -37,15 +37,14 @@
 
 (defn about-page []
   [:div
-   [:br]
-   [:center [:div1 [:a {:href "/"} "Home"]]]
-   [:br] [:br]
    [:center [:h2 "SMchat"]]
    [:textbox
          [:p "Preview:    "]
      [:p @text]
      [:p "Send your message! : "]
-     [atom-input text]]])
+    [atom-input text]
+    [:br] [:br]
+    [:a {:href "/"} "Home"]]])
 
 (defn current-page []
   [:div [(session/get :current-page)]])
