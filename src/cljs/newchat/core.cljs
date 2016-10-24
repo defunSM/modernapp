@@ -16,6 +16,7 @@
 ;; -------------------------
 ;; Views
 
+(defonce text (reagent/atom ""))
 (defonce stuff (reagent/atom ["one" "two"]))
 
 (defn home-page []
@@ -29,15 +30,22 @@
    [:br] [:br] [:br]
    [:center [:img {:src "http://imgur.com/StGANnEl.png"}]]])
 
+(defn atom-input [value]
+  [:input {:type "text"
+           :value @value
+           :on-change #(reset! value (-> % .-target .-value))}])
+
 (defn about-page []
   [:div
    [:br]
    [:center [:div1 [:a {:href "/"} "Home"]]]
    [:br] [:br]
-   [:textbox [:center [:h2 "SMchat"]]
-    [:br]
-    [:br]
-    [:center [:div1"Currently under active development"]]]])
+   [:center [:h2 "SMchat"]]
+   [:textbox
+         [:p "Preview:    "]
+     [:p @text]
+     [:p "Send your message! : "]
+     [atom-input text]]])
 
 (defn current-page []
   [:div [(session/get :current-page)]])
