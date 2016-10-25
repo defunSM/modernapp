@@ -31,6 +31,7 @@
 (defroutes routes
   (GET "/" [] (loading-page))
   (GET "/about" [] (loading-page))
+  (GET "/math" [] (loading-page))
 
   (resources "/")
   (not-found "Not Found"))

@@ -46,6 +46,16 @@
     [:br] [:br]
     [:a {:href "/"} "Home"]]])
 
+(defn filter-math [text]
+  (let [new (re-seq #"[^,]+" text)]
+    new))
+
+(defn paperless-math []
+  [:div
+   [:center [:h2 "Paperless Math"]]
+   [:center    [:p (filter-math @text)]
+    [atom-input text]]])
+
 (defn current-page []
   [:div [(session/get :current-page)]])
 
@@ -58,6 +68,8 @@
 (secretary/defroute "/about" []
   (session/put! :current-page #'about-page))
 
+(secretary/defroute "/math" []
+  (session/put! :current-page #'paperless-math))
 ;; -------------------------
 ;; Initialize app
 

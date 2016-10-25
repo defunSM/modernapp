@@ -21,6 +21,24 @@ body {
 
 }
 
+div {
+    color:  #CCDAEB;
+    font-family: Sans;
+    font-weight: bold;
+    antialiased: active;
+
+}
+
+input {
+    Background-color: grey;
+    color: white;
+    border-radius: 0.5em;
+    font-size: 20px;
+    padding: 10px;
+    border-color: black;
+    border-style: solid;
+}
+
 textbox {
 
     padding: 23px 120px 0px 100px;
