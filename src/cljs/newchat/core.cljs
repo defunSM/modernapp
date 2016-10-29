@@ -3,7 +3,10 @@
               [reagent.session :as session]
               [secretary.core :as secretary :include-macros true]
               [accountant.core :as accountant]
-              [clojure.string :as str]))
+              [clojure.string :as str]
+              [homepage.core :as hp]
+              [about.core :as ab]
+              [planets.core :as p]))
 
 ;; ------------------------
 ;; Database
@@ -29,29 +32,7 @@
 
 (defn home-page []
   (let [timer-str (-> @timer .toTimeString (str/split " ") first)]
-      [:div [:center [:h2 "SMchat"]]
-       [:center  [:h3 "The Modern Chat Platform"]]
-       ;;   [:div [:a {:href "/about"} "go to about page"]]
-       [:br] [:br]
-       [:center [:div1 [:a {:href "https://defunsm.github.io/posts-output/smchat/"} "SMChat"]]
-        [:br] [:br] [:br]
-        [:div1 [:a {:href "/about"} "Messages"]]]
-       [:br] [:br] [:br]
-       [:center [:img {:src "http://imgur.com/StGANnEl.png"}]]
-       [:br] [:br] [:br]
-       [:center [:h2 "Paperless Math"]]
-       [:center [:h3 "A Multi Purpose Math Utility"]]
-       [:br] [:br]
-       [:center [:div1 [:a {:href "/math"} "Paperless Math"]]]
-       [:br] [:br]
-       [:p {:style {:padding "0px 30px"}} "Copyright © Salman H. 2016"]
-       [:p {:style {:padding "0px 30px"
-                    :align "bottom"
-                    :fixed 0
-                    :bottom 0
-                    :font-size "12px"}} timer-str]]))
-
-
+      (hp/home timer-str)))
 
 (defn save []
   (do (reset! text "")))
@@ -65,15 +46,15 @@
                                       nil)}])
 
 (defn about-page []
-  [:div
-   [:center [:h2 "SMchat"]]
-   [:textbox
-    [:p "Preview:    "]
-    [:p @text]
-    [:p "Send your message! : "]
-    [atom-input text]
-    [:br] [:br]
-    [:a {:href "/"} "Home"]]])
+      [:div
+       [:center [:h2 "SMchat"]]
+       [:center
+        [:p "Preview:    "]
+        [:p @text]
+        [:p "Send your message : "]
+        [atom-input text]
+        [:br] [:br]
+        [:a {:href "/"} "Home"]]])
 
 (defn rearrange [array]
   (let [num (count array)]
@@ -100,7 +81,12 @@
      [:p {:style {:padding "0px 30px"
                   :align "bottom"
                   :position "absolute"
-                  :top "850px"}} "Copyright © Salman H. 2016"]]))
+                  :top "850px"}} "Copyright © Salman H. 2016"]
+     [:center [:a {:href "/"} "Home"]]]))
+
+(defn planetpage []
+  (let [timer-str (-> @timer .toTimeString (str/split " ") first)]
+    (p/planets timer-str)))
 
 (defn current-page []
   [:div [(session/get :current-page)]])
@@ -116,6 +102,9 @@
 
 (secretary/defroute "/math" []
   (session/put! :current-page #'paperless-math))
+
+(secretary/defroute "/planet" []
+  (session/put! :current-page #'planetpage))
 ;; -------------------------
 ;; Initialize app
 

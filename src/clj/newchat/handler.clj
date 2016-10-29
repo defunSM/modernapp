@@ -32,6 +32,7 @@
   (GET "/" [] (loading-page))
   (GET "/about" [] (loading-page))
   (GET "/math" [] (loading-page))
+  (GET "/planet" [] (loading-page))
 
   (resources "/")
   (not-found "Not Found"))

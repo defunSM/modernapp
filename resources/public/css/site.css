@@ -111,10 +111,16 @@ a {
 }
 
 a:hover {
-    color: #a67d4a;
+    color: #272B30;
 }
 
 img {
     width: 70%;
     height: 70%;
+}
+
+div.planet {
+    height: 30px;
+    width: 30px;
+    border-radius: 1em;
 }
