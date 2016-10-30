@@ -127,17 +127,17 @@ div.planet {
 
 nav.arrow {
     height: 50px;
-    width: 100px;
+    width: 100%;
     background-color: #222222;
     position: fixed;
     bottom: 0;
     border: solid;
-    border-radius: 1em;
     border-color: black;
+    border-width: 2px 2px 2px 0px;
 }
 
 arrow {
-    font-size: 36px;
+    font-size: 12px;
     margin: 15px 0px 0px 34px;
 
 }

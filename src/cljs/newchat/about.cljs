@@ -4,6 +4,7 @@
 (defonce text (reagent/atom ""))
 (defonce arrow (reagent/atom "^"))
 (defonce nav-height (reagent/atom "50px"))
+(defonce arrowmessage (reagent/atom ""))
 
 (defn save []
   (do (reset! text "")))
@@ -16,11 +17,13 @@
                                       13 (save)
                                       nil)}])
 (defn arrow-fn []
-  (if (= @arrow "^")
-    (do (reset! nav-height "100px")
-        (reset! arrow "x"))
+  (if (= @arrow "Press for more info")
+    (do (reset! nav-height "200px")
+        (reset! arrow "x")
+        (reset! arrowmessage "Currently under development. Working on implementing natural language processes. Working on front-end development as of now. Some of the technologies being used here are Clojure, JavaScript, Reagent, and React."))
     (do (reset! nav-height "50px")
-        (reset! arrow "^"))))
+        (reset! arrow "Press for more info")
+        (reset! arrowmessage ""))))
 
 (defn aboutpage []
   [:div
@@ -32,4 +35,5 @@
     [atom-input text]
     [:br] [:br]
     [:a {:href "/"} "Home"]]
-   [:nav.arrow {:style {:height @nav-height}} [:arrow {:on-click #(arrow-fn)} @arrow]]])
+   [:nav.arrow {:style {:height @nav-height}} [:arrow {:on-click #(arrow-fn)} @arrow]
+    [:p {:style {:font-size "12px" :margin "20px"}}@arrowmessage]]])
