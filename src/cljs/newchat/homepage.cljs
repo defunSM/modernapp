@@ -1,4 +1,21 @@
-(ns homepage.core)
+(ns homepage.core
+  (:require [reagent.core :as reagent :refer [atom]]))
+
+
+(defonce text (reagent/atom ""))
+(defonce arrow (reagent/atom "Press here for more information"))
+(defonce nav-height (reagent/atom "50px"))
+(defonce arrowmessage (reagent/atom ""))
+
+
+(defn arrow-fn []
+  (if (= @arrow "Press here for more information")
+    (do (reset! nav-height "200px")
+        (reset! arrow "x")
+        (reset! arrowmessage "This is a currently a heroku website that is being used to hold various projects that I am working on. There is the SMChat which is a chat client, the Paperless Math Project which is aimed for doing calculations. Finally the Planet Simulation which will simulate orbitals of Planets."))
+    (do (reset! nav-height "50px")
+        (reset! arrow "Press here for more information")
+        (reset! arrowmessage ""))))
 
 (defn home [timer-str]
   [:div [:center [:h2 "SMchat"]]
@@ -26,4 +43,7 @@
                     :align "bottom"
                     :fixed 0
                     :bottom 0
-                    :font-size "12px"}} timer-str]])
+                    :font-size "12px"}} timer-str]
+      [:nav.arrow {:style {:height @nav-height}} [:arrow {:on-click #(arrow-fn)} @arrow]
+       [:p {:style {:font-size "12px" :margin "20px"}} @arrowmessage ]]]
+  )
