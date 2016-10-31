@@ -16,7 +16,7 @@
 
 
 ;; (defn record [db input]
-;;   (db/insert! database-connection db {:content input}))
+;;  (db/insert! database-connection db {:content input}))
 
 ;; -------------------------
 ;; Views

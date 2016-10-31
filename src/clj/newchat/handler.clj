@@ -3,7 +3,8 @@
             [compojure.route :refer [not-found resources]]
             [hiccup.page :refer [include-js include-css html5]]
             [newchat.middleware :refer [wrap-middleware]]
-            [config.core :refer [env]]))
+            [config.core :refer [env]]
+            [viewer.core :as viewer])) ;; make this viewer so that you can view other websites.
 
 (def mount-target
   [:div#app
@@ -18,6 +19,7 @@
    [:meta {:name "viewport"
            :content "width=device-width, initial-scale=1"}]
    (include-css (if (env :dev) "/css/site.css" "/css/site.min.css"))
+   (include-css "/css/font-awesome.css")
    (include-js "/css/somejavascript.js")])
 
 (defn loading-page []
@@ -33,6 +35,9 @@
   (GET "/about" [] (loading-page))
   (GET "/math" [] (loading-page))
   (GET "/planet" [] (loading-page))
+  (GET "/anothersite" [] (html5 [:body (slurp "https://defunsm.github.io/")
+                                 [:div "Hello"]]
+                                ))
 
   (resources "/")
   (not-found "Not Found"))
