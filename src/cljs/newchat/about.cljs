@@ -35,5 +35,5 @@
     [atom-input text]
     [:br] [:br]
     [:a {:href "/"} "Home"]]
-   [:nav.arrow {:style {:height @nav-height}} [:arrow {:on-click #(arrow-fn)} @arrow]
+   [:nav.arrow {:style {:height @nav-height}} [:button {:on-click #(arrow-fn)} @arrow]
     [:p {:style {:font-size "12px" :margin "20px"}} @arrowmessage ]]])

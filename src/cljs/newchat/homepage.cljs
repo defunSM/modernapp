@@ -44,6 +44,6 @@
                     :fixed 0
                     :bottom 0
                     :font-size "12px"}} timer-str]
-      [:nav.arrow {:style {:height @nav-height}} [:arrow {:on-click #(arrow-fn)} @arrow]
+      [:nav.arrow {:style {:height @nav-height}} [:button {:on-click #(arrow-fn)} @arrow]
        [:p {:style {:font-size "12px" :margin "20px"}} @arrowmessage ]]]
   )
