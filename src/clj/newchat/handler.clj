@@ -3,8 +3,7 @@
             [compojure.route :refer [not-found resources]]
             [hiccup.page :refer [include-js include-css html5]]
             [newchat.middleware :refer [wrap-middleware]]
-            [config.core :refer [env]]
-            [viewer.core :as viewer])) ;; make this viewer so that you can view other websites.
+            [config.core :refer [env]])) ;; make this viewer so that you can view other websites.
 
 (def mount-target
   [:div#app
