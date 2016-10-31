@@ -3,7 +3,8 @@
             [compojure.route :refer [not-found resources]]
             [hiccup.page :refer [include-js include-css html5]]
             [newchat.middleware :refer [wrap-middleware]]
-            [config.core :refer [env]])) ;; make this viewer so that you can view other websites.
+            [config.core :refer [env]]
+            [ring.middleware.cookies :refer [wrap-cookies]])) ;; make this viewer so that you can view other websites.
 
 (def mount-target
   [:div#app
@@ -28,15 +29,12 @@
      mount-target
      (include-js "/js/app.js")]))
 
-
 (defroutes routes
   (GET "/" [] (loading-page))
   (GET "/about" [] (loading-page))
   (GET "/math" [] (loading-page))
   (GET "/planet" [] (loading-page))
-  (GET "/anothersite" [] (html5 [:body (slurp "https://defunsm.github.io/")
-                                 [:div "Hello"]]
-                                ))
+  (GET "/webviewer" request (html5 [:body [:div (str request)]]))
 
   (resources "/")
   (not-found "Not Found"))
