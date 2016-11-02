@@ -34,7 +34,7 @@
   (GET "/about" [] (loading-page))
   (GET "/math" [] (loading-page))
   (GET "/planet" [] (loading-page))
-  (GET "/webviewer" request (html5 [:body [:div (str request)]]))
+  (GET "/webviewer" request (loading-page))
 
   (resources "/")
   (not-found "Not Found"))

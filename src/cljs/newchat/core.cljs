@@ -40,8 +40,12 @@
   (let [timer-str (-> @timer .toTimeString (str/split " ") first)]
     (p/planets timer-str)))
 
+(defn webviewer []
+  [:div "Testing"])
+
 (defn current-page []
   [:div [(session/get :current-page)]])
+
 
 ;; -------------------------
 ;; Routes
@@ -57,6 +61,10 @@
 
 (secretary/defroute "/planet" []
   (session/put! :current-page #'planetpage))
+
+(secretary/defroute "/webviewer" []
+  (session/put! :current-page #'webviewer))
+
 ;; -------------------------
 ;; Initialize app
 
