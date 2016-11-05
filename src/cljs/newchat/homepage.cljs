@@ -33,7 +33,7 @@
       [:center [:h2 "Drawing Pad"]]
    [:center [:h3 "A colorful drawing canvas."]]
    [:br]   [:br]
-   [:center [:div1 [:a {:href "http://smwebapp.herokuapp.com/"} "Drawing Pad"]]]
+   [:center [:div1 [:a {:href "/drawingpad"} "Drawing Pad"]]]
    [:br] [:br]
    [:center    [:img {:src "http://i.imgur.com/8zIV9Pn.png" :class "imgtilt2"}]]
    [:br]   [:br]   [:br]

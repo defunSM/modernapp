@@ -9,7 +9,8 @@
               [planets.core :as p]
               [mathpage.core :as m]
               [webapp.core :as webapp]
-              [pathfinder.core :as pathfinder]))
+              [pathfinder.core :as pathfinder]
+              [drawingpad.core :as drawingpad]))
 
 ;; ------------------------
 ;; Database
@@ -44,10 +45,18 @@
 
 (defn pathfinder []
   [:div
-   [:center [:h2 "Pathfinder"]
-   [:center [:h3 "Start moving the mouse to start drawing a path."]
-    ]]
+   [:center [:h2 "Pathfinder"]]
+   [:center [:h3 "Start moving the mouse to start drawing a path."]]
    (pathfinder/pathfinder-page)])
+
+(defn drawingpad []
+  [:div
+   [:center [:h2 "Drawing Pad"]]
+   [:center [:h3 "A canvas for drawing."]]
+   [:center [:p "Press 's' to save the image." ]]
+   [:center [:p "Press 'c' to clear the image." ]]
+   [:center [:p "Press 'r' to make random circles." ]]
+   [:center (drawingpad/drawingpad-page)]])
 
 (defn webviewer []
   (webapp/main))
@@ -70,6 +79,9 @@
 
 (secretary/defroute "/pathfinder" []
   (session/put! :current-page #'pathfinder))
+
+(secretary/defroute "/drawingpad" []
+  (session/put! :current-page #'drawingpad))
 
 (secretary/defroute "/planet" []
   (session/put! :current-page #'planetpage))

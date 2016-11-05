@@ -42,6 +42,7 @@
   (GET "/math" [] (loading-page))
   (GET "/planet" [] (loading-page))
   (GET "/pathfinder" [] (loading-page))
+  (GET "/drawingpad" [] (loading-page))
   (GET "/webapp" [] (webapp-loading-page))
 
   (resources "/")
