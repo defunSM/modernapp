@@ -29,12 +29,20 @@
      mount-target
      (include-js "/js/app.js")]))
 
+(defn webapp-loading-page []
+  (html5
+    (head)
+    [:body {:class "webapp-container"}
+     mount-target
+     (include-js "/js/app.js")]))
+
 (defroutes routes
   (GET "/" [] (loading-page))
   (GET "/about" [] (loading-page))
   (GET "/math" [] (loading-page))
   (GET "/planet" [] (loading-page))
-  (GET "/webviewer" request (loading-page))
+  (GET "/pathfinder" [] (loading-page))
+  (GET "/webapp" [] (webapp-loading-page))
 
   (resources "/")
   (not-found "Not Found"))

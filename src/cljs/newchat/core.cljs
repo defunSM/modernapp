@@ -7,7 +7,9 @@
               [homepage.core :as hp]
               [about.core :as ab]
               [planets.core :as p]
-              [mathpage.core :as m]))
+              [mathpage.core :as m]
+              [webapp.core :as webapp]
+              [pathfinder.core :as pathfinder]))
 
 ;; ------------------------
 ;; Database
@@ -40,8 +42,15 @@
   (let [timer-str (-> @timer .toTimeString (str/split " ") first)]
     (p/planets timer-str)))
 
+(defn pathfinder []
+  [:div
+   [:center [:h2 "Pathfinder"]
+   [:center [:h3 "Start moving the mouse to start drawing a path."]
+    ]]
+   (pathfinder/pathfinder-page)])
+
 (defn webviewer []
-  [:div "Testing"])
+  (webapp/main))
 
 (defn current-page []
   [:div [(session/get :current-page)]])
@@ -59,10 +68,13 @@
 (secretary/defroute "/math" []
   (session/put! :current-page #'paperless-math))
 
+(secretary/defroute "/pathfinder" []
+  (session/put! :current-page #'pathfinder))
+
 (secretary/defroute "/planet" []
   (session/put! :current-page #'planetpage))
 
-(secretary/defroute "/webviewer" []
+(secretary/defroute "/webapp" []
   (session/put! :current-page #'webviewer))
 
 ;; -------------------------

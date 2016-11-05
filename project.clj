@@ -22,7 +22,7 @@
                  [org.postgresql/postgresql "9.4-1201-jdbc4"]
                  [org.clojure/java.jdbc "0.3.5"]
                  [environ "1.0.2"]
-                 ]
+                 [quil "2.4.0"]]
 
   :plugins [[lein-environ "1.0.2"]
             [lein-cljsbuild "1.1.1"]

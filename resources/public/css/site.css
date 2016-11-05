@@ -17,8 +17,18 @@ body {
     color: #333;
     line-height: 1.5em;
     background: #272B30;
+}
 
+.webapp-container {
 
+    height: 100vh;
+    margin: 0 auto;
+    padding-top: 72px;
+    -webkit-font-smoothing: antialiased;
+    font-size: 1.125em;
+    color: #333;
+    line-height: 1.5em;
+    background: #EF4F43;
 }
 
 div {
@@ -160,4 +170,32 @@ button {
 
 button:hover {
     color: #268bd2;
+}
+
+
+appbackground {
+    color: "red";
+    background-color: #222222;
+    width: 50%;
+    height: 300px;
+    padding: 30px;
+    border-radius: 0.2em;
+    word-wrap: break-word;
+
+
+}
+
+appbackground:hover {
+    background-color: white;
+    color: black;
+}
+
+.imgtilt {
+    width: 450px;
+    -webkit-transform: rotate(5deg);
+}
+
+.imgtilt2 {
+    width: 450px;
+    -webkit-transform: rotate(-5deg);
 }
