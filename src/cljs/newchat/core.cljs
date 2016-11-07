@@ -53,9 +53,10 @@
   [:div
    [:center [:h2 "Drawing Pad"]]
    [:center [:h3 "A canvas for drawing."]]
-   [:center [:p "Press 's' to save the image." ]]
-   [:center [:p "Press 'c' to clear the image." ]]
-   [:center [:p "Press 'r' to make random circles." ]]
+   [:center
+    [:p "Press 's' to save the image." ]
+    [:p "Press 'c' to clear the image." ]
+    [:p "Press 'r' to make random circles." ]]
    [:center (drawingpad/drawingpad-page)]])
 
 (defn webviewer []

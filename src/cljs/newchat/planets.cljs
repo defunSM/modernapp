@@ -1,6 +1,51 @@
 (ns planets.core
   (:require [reagent.core :as reagent :refer [atom]]
-            [reagent.session :as session]))
+            [reagent.session :as session]
+            [quil.core :as q :include-macros true]
+            [quil.middleware :as m]))
+
+
+
+(defn setup []
+  {:r 0.0})
+
+(defn draw [state]
+  (q/background 50)
+  (q/ambient-light 64 64 128)
+  (q/directional-light 200 200 200 0 1 0.5)
+  (update-in state [:r] + 0.01)
+
+  (q/translate (/ (q/width) 2) (/ (q/height) 2) 380)
+  (q/rotate-x (/ (- 0 3.14) 4))
+  (q/rotate-y (:r state))
+
+  (doseq [i (range 16)]
+    (q/fill (* i 10) 0 0)
+    (q/no-stroke)
+    (q/push-matrix)
+    (q/translate (- i 7) -3 0)
+    (q/translate 0 (q/sin (+ (/ (q/frame-count) 5.0) i)) 0)
+    (q/rotate-x (+ (/ i 10.0) (/ (q/frame-count) 20.0)))
+    (q/sphere 3)
+    (q/translate 2 5 0)
+    (q/fill 0 (- 150 (* i 10)) 0)
+    (q/sphere 1)
+    (q/pop-matrix))
+
+  (q/stroke 50 200 200)
+  (q/no-fill)
+  (q/stroke-weight 3)
+  (q/box 13 1 13)
+  )
+
+(q/defsketch my-sketch
+  :host "host"
+  :draw draw
+  :size [640 480]
+  :renderer :p3d
+  ; Enable navigation-3d.
+  ; Note: it should be used together with fun-mode.
+  :middleware [m/fun-mode m/navigation-3d])
 
 (defonce universe (reagent/atom {:time 0
                                  :numberofplanets 0
@@ -28,6 +73,7 @@
                 :position "absolute"
                 :top "850px"}} "Copyright © Salman H. 2016"]
    [:center [:a {:href "/"} "Home"]]
+   [:center [:canvas#host]]
    (creategap 5)])
 
 (defn setup-planet [left top size background-color]

@@ -1,6 +1,8 @@
 (ns mathpage.core
   (:require [reagent.core :as reagent :refer [atom]]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            [quil.core :as q :include-macros true]
+            [quil.middleware :as m]))
 
 
 (defonce text (reagent/atom ""))
@@ -37,6 +39,7 @@
       [:p @display]
       [:p (filter-math @text)]
       [atom-input text]]
+
      [:p {:style {:padding "30px"
                   :align "bottom"
                   :position "absolute"
@@ -46,4 +49,5 @@
                   :align "bottom"
                   :position "absolute"
                   :top "850px"}} "Copyright © Salman H. 2016"]
-     [:center [:a {:href "/"} "Home"]]])
+   [:center [:a {:href "/"} "Home"]]
+   [:center    [:canvas#host]]])
