@@ -10,7 +10,7 @@
   {:r 0.0})
 
 (defn draw [state]
-  (q/background 50)
+  (q/background 40)
   (q/ambient-light 64 64 128)
   (q/directional-light 200 200 200 0 1 0.5)
   (update-in state [:r] + 0.01)
@@ -19,24 +19,22 @@
   (q/rotate-x (/ (- 0 3.14) 4))
   (q/rotate-y (:r state))
 
-  (doseq [i (range 16)]
+  (doseq [i (range 40)]
     (q/fill (* i 10) 0 0)
     (q/no-stroke)
     (q/push-matrix)
     (q/translate (- i 7) -3 0)
-    (q/translate 0 (q/sin (+ (/ (q/frame-count) 5.0) i)) 0)
+    (q/translate 0 (* 0.2 (q/cos (* 3 (+ (/ (q/frame-count) 5.0) i))))  0)
     (q/rotate-x (+ (/ i 10.0) (/ (q/frame-count) 20.0)))
-    (q/sphere 3)
-    (q/translate 2 5 0)
-    (q/fill 0 (- 150 (* i 10)) 0)
+    (q/sphere 1)
+    (q/translate 2 5 2)
+    (q/fill 0 (- 255 (* i 10)) 0)
     (q/sphere 1)
     (q/pop-matrix))
 
   (q/stroke 50 200 200)
   (q/no-fill)
-  (q/stroke-weight 3)
-  (q/box 13 1 13)
-  )
+  (q/stroke-weight 3))
 
 (q/defsketch my-sketch
   :host "host"

@@ -10,7 +10,8 @@
               [mathpage.core :as m]
               [webapp.core :as webapp]
               [pathfinder.core :as pathfinder]
-              [drawingpad.core :as drawingpad]))
+              [drawingpad.core :as drawingpad]
+              [life.core :as life]))
 
 ;; ------------------------
 ;; Database
@@ -59,12 +60,19 @@
     [:p "Press 'r' to make random circles." ]]
    [:center (drawingpad/drawingpad-page)]])
 
+(defn lifepage []
+  [:div
+   [:center [:h2 "Life Calculations"]]
+   [:center [:h3 "How much time are you spending?"]]
+   [:center (life/life-page)]])
+
 (defn webviewer []
   (webapp/main))
 
+
+
 (defn current-page []
   [:div [(session/get :current-page)]])
-
 
 ;; -------------------------
 ;; Routes
@@ -89,6 +97,9 @@
 
 (secretary/defroute "/webapp" []
   (session/put! :current-page #'webviewer))
+
+(secretary/defroute "/life" []
+  (session/put! :current-page #'lifepage))
 
 ;; -------------------------
 ;; Initialize app

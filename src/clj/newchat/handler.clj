@@ -44,6 +44,7 @@
   (GET "/pathfinder" [] (loading-page))
   (GET "/drawingpad" [] (loading-page))
   (GET "/webapp" [] (webapp-loading-page))
+  (GET "/life" [] (loading-page))
 
   (resources "/")
   (not-found "Not Found"))
